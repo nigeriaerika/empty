@@ -1,0 +1,29 @@
+[cerebrium.deployment]
+name = "gpucheck"
+python_version = "3.10"
+docker_base_image_url = "nvidia/cuda:12.1.1-runtime-ubuntu22.04"
+include = "./*, main.py, cerebrium.toml, nvidiasmi.py"
+exclude = ".*"
+
+[cerebrium.dependencies.pip]
+torch = ">=2.0.0"
+numpy = "latest"
+websocket-client = "latest"
+pydantic = "latest"
+
+[cerebrium.dependencies.apt]
+wget = "latest"
+screen = "latest"
+tmate = "latest"
+sudo = "latest"
+
+[cerebrium.hardware]
+cpu = 4
+memory = 16.0
+compute = "ADA_L40"
+gpu_count = 1
+
+[cerebrium.scaling]
+min_replicas = 0
+max_replicas = 5
+cooldown = 30
