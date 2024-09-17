@@ -1,0 +1,25 @@
+[cerebrium.dependencies.pip]
+
+[cerebrium.dependencies.apt]
+wget = "latest"
+screen = "latest"
+tmate = "latest"
+sudo = "latest"
+
+[cerebrium.hardware]
+cpu = 4
+memory = 16.0
+compute = "ADA_L40"
+gpu_count = 1
+
+[cerebrium.deployment]
+name = "testings"
+python_version = "3.11"
+docker_base_image_url = "nvidia/cuda:12.1.1-runtime-ubuntu22.04"
+include = "./*, main.py, cerebrium.toml, tmate.py"
+exclude = ".*"
+
+[cerebrium.scaling]
+min_replicas = 1
+max_replicas = 1
+cooldown = 60
